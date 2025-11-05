@@ -28,9 +28,7 @@ export default function App() {
             <div className={`${step >= 2 ? "active" : ""}`}>2</div>
             <div className={`${step >= 3 ? "active" : ""}`}>3</div>
           </div>
-          <p className="message">
-            Step {step}:{messages[step - 1]}
-          </p>
+          <Message step={step}>{messages[step - 1]}</Message>
           <div className="buttons">
             <Button
               bgColor="#7950f2"
@@ -61,5 +59,13 @@ function Button({ bgColor, textColor, children, handleFunction }) {
     >
       {children}
     </button>
+  );
+}
+
+function Message({ step, children }) {
+  return (
+    <p className="message">
+      Step {step} :{children}
+    </p>
   );
 }
